@@ -1,5 +1,9 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
+
 #include "frontend.h"
+
 using namespace std;
 
 void printMenuHeading()
@@ -9,5 +13,35 @@ void printMenuHeading()
     cout << " | |_| | / __| __/ _ \\| '__| | | | | __| | '_ ` _ \\ / _ \\ | | '_ \\ / _ \\ \n";
     cout << " |  _  | \\__ \\ || (_) | |  | |_| | | |_| | | | | | |  __/ | | | | |  __/ \n";
     cout << " |_| |_|_|___/\\__\\___/|_|   \\__, |  \\__|_|_| |_| |_|\\___|_|_|_| |_|\\___| \n";
-    cout << "                            |___/                                        \n";
+    cout << "                            |___/                                        \n\n\n";
+}
+
+void printMenuOptions(int option, string arrow)
+{
+    
+    cout << setw(33);
+    if (option == 1)cout << "=>";
+    else cout << "  ";
+    cout << " Show 1\n";
+
+    cout << setw(33);
+    if (option == 2)cout << "=>";
+    else cout << "  ";
+    cout << " Show 2\n";
+
+    cout << setw(33);
+    if (option == 3)cout << "=>";
+    else cout << "  ";
+    cout << " Show 3\n";
+
+    cout << setw(33);
+    if (option == 4)cout << "=>";
+    else cout << "  ";
+    cout << " Exit\n";
+}
+
+void printMenu(int option)
+{
+    printMenuHeading();
+    printMenuOptions(option);
 }

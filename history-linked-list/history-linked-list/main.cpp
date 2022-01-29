@@ -1,8 +1,14 @@
 #include <iostream>
+
 #include "frontend.h"
+#include "backend.h"
+
 using namespace std;
 
 int main()
 {
-	printMenuHeading();
+	while (runProgram())
+	{
+		runProgram();
+	} 
 }
