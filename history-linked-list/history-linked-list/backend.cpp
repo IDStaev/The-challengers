@@ -21,15 +21,13 @@ bool runProgram()
 			unsigned char ch2 = _getch();
 			if (ch2 == 72)
 			{
-				if (counter == 1)
-					counter = 6;
+				if (counter == 1) counter = 6;
 				counter--;
 				system("cls");
 			}
 			else if (ch2 == 80)
 			{
-				if (counter == 5)
-					counter = 0;
+				if (counter == 5) counter = 0;
 				counter++;
 				system("cls");
 			}
@@ -39,9 +37,7 @@ bool runProgram()
 		{
 			switch (counter)
 			{
-
-			case 1:
-				cout << "All events";break;
+			case 1: cout << "All events" << endl; break;
 			case 2: cout << "Add an event" << endl; break;
 			case 3: cout << "Delete an event" << endl; break;
 			case 4: cout << "Quiz" << endl; break;
