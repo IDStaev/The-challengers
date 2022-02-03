@@ -22,20 +22,25 @@ void printMenuOptions(int option, string arrow)
     cout << setw(33);
     if (option == 1)cout << "=>";
     else cout << "  ";
-    cout << " Show 1\n";
+    cout << " All Events\n";
 
     cout << setw(33);
     if (option == 2)cout << "=>";
     else cout << "  ";
-    cout << " Show 2\n";
+    cout << " Add an event\n";
 
     cout << setw(33);
     if (option == 3)cout << "=>";
     else cout << "  ";
-    cout << " Show 3\n";
+    cout << " Delete an event\n";
 
     cout << setw(33);
     if (option == 4)cout << "=>";
+    else cout << "  ";
+    cout << " Quiz\n";
+
+    cout << setw(33);
+    if (option == 5)cout << "=>";
     else cout << "  ";
     cout << " Exit\n";
 }
