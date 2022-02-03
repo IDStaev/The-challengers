@@ -24,12 +24,24 @@
     <ClCompile Include="backend.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedListFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frontend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="backend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
