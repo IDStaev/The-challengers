@@ -31,6 +31,21 @@ Node* Node::getNext()
 	return next;
 }
 
+void Node::setYear(string year)
+{
+	this->year = year;
+}
+
+void Node::setName(string name)
+{
+	this->name = name;
+}
+
+void Node::setInfo(string info)
+{
+	this->info = info;
+}
+
 void Node::setNext(Node* nextNode)
 {
 	next = nextNode;

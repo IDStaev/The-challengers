@@ -10,6 +10,9 @@ public:
 	string getName();
 	string getInfo();
 	Node* getNext();
+	void setYear(string year);
+	void setName(string name);
+	void setInfo(string info);
 	void setNext(Node* nextNode);
 
 private:
