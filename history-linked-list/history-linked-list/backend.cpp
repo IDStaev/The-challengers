@@ -21,17 +21,24 @@ bool runProgram()
 			unsigned char ch2 = _getch();
 			if (ch2 == 72)
 			{
-				if (counter == 1) counter = 6;
-				counter--;
+				if (counter == 1) counter = 1;
+				else {
+					counter--;
+				}
+				
 				system("cls");
 			}
 			else if (ch2 == 80)
 			{
-				if (counter == 5) counter = 0;
-				counter++;
+				if (counter == 5) counter = 5;
+				else {
+					counter++;
+				}
+				
 				system("cls");
 			}
 			printMenu(counter);
+			
 		}
 		else if (ch1 == 13)
 		{

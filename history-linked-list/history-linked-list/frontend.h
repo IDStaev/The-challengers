@@ -2,6 +2,6 @@
 #include <string>
 using namespace std;
 
-void printMenuHeading();
+void printMenuHeading(int option);
 void printMenuOptions(int option = 1, string arrow = "=>");
 void printMenu(int option);
