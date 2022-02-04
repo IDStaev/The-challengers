@@ -6,11 +6,12 @@ using namespace std;
 
 void displayList(Node* node)
 {
+	system("cls");
 	while (node != NULL)
 	{
 		cout << node->getYear() << ", ";
 		cout << node->getName() << ", ";
-		cout << node->getInfo() << endl;
+		cout << node->getInfo() << endl << endl;
 
 		node = node->getNext();
 	}
