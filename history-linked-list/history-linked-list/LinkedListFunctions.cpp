@@ -1,22 +1,40 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
+
 #include "linkedList.h"
 #include "LinkedListFunctions.h"
+#include "backend.h"
 using namespace std;
 
 //Displays all the nodes of a linked list
 void displayList(Node* node)
 {
+	
 	system("cls");
 	while (node != NULL)
 	{
 		cout << node->getYear() << ", ";
 		cout << node->getName() << ", ";
-		cout << node->getInfo() << endl << endl;
+		
+		unsigned char ch1 = _getch();
+		if (ch1 == 224)
+		{
+			unsigned char ch2 = _getch();
+			
+			cout << node->getInfo(); 
+			
+		} 
+			cout << endl;
+			cout << endl;
+		
+			node = node->getNext();
+		}
 
-		node = node->getNext();
-	}
+	system("cls");
 }
+
+
 
 //Inserts a node at the beginning of a linked list
 void insertFirstNode(Node** head, string y, string n, string d)

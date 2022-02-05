@@ -3,6 +3,8 @@
 #include <string>
 
 #include "frontend.h"
+#include "backend.h"
+#include "LinkedListFunctions.h"
 
 using namespace std;
 
@@ -114,6 +116,8 @@ void printMenuOptions(int option, string arrow)
 
     // End of "Exit"
 }
+
+
 
 void printMenu(int option)
 {

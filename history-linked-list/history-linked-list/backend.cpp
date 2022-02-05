@@ -68,7 +68,7 @@ bool runProgram()
 		{
 			switch (counter)
 			{
-			case 1: displayList(headDefault); break;
+			case 1:  displayList(headDefault); break;
 			case 2: cout << "Add an event" << endl; break;
 			case 3: cout << "Delete an event" << endl; break;
 			case 4: cout << "Quiz" << endl; break;
