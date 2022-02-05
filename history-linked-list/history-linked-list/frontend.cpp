@@ -36,7 +36,7 @@ void printMenuHeading(int option)
 
 void printMenuOptions(int option, string arrow)
 {
-
+    // Start of "All events"
 
     cout << setw(30);
     cout << "     | |                           _______________________________________                        | |" << endl;
@@ -50,8 +50,9 @@ void printMenuOptions(int option, string arrow)
     cout << "     | |                          | |___________________________________| |                       | |" << endl;
     cout << "     | |                          |_______________________________________|                       | |" << endl;
 
+    // End of "All events"
 
-
+    // Start of "Add an event"
 
     cout << setw(30);
     cout << "     | |                           _______________________________________                        | |" << endl;
@@ -66,13 +67,9 @@ void printMenuOptions(int option, string arrow)
     cout << "     | |                          | |___________________________________| |                       | |" << endl;
     cout << "     | |                          |_______________________________________|                       | |" << endl;
 
+    // End of "Add an event"
 
-    //krai na ADD AN EVENT
-
-
-
-
-    //nachalo na DELETE AN EVENT
+    // Start of "Delete an event"
 
     cout << setw(30);
     cout << "     | |                           _______________________________________                        | |" << endl;
@@ -85,13 +82,10 @@ void printMenuOptions(int option, string arrow)
     cout << "     | |                          | |___________________________________| |                       | |" << endl;
     cout << "     | |                          |_______________________________________|                       | |" << endl;
 
+    // End of "Delete an event"
 
-    // krai na DELETE AN EVENT
+    // Start of "Quiz"
 
-
-
-
-    // nachalo na QUIZ
     cout << setw(30);
     cout << "     | |                           _______________________________________                        | |" << endl;
     cout << "     | |                          |  ___________________________________  |                       | |" << endl;
@@ -103,11 +97,10 @@ void printMenuOptions(int option, string arrow)
 
     cout << "     | |                          | |___________________________________| |                       | |" << endl;
     cout << "     | |                          |_______________________________________|                       | |" << endl;
-    // krai na QUIZ
+    
+    // End of "Quiz"
 
-
-
-    // nachalo na EXIT
+    // Start of "Exit"
 
     cout << setw(30);
     cout << "     | |                           _______________________________________                        | |" << endl;
@@ -118,6 +111,8 @@ void printMenuOptions(int option, string arrow)
     cout << " Exit               | |                       | |\n";
     cout << "     | |                          | |___________________________________| |                       | |" << endl;
     cout << "     | |                          |_______________________________________|                       | |" << endl;
+
+    // End of "Exit"
 }
 
 void printMenu(int option)
