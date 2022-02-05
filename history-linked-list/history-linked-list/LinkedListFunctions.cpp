@@ -4,6 +4,7 @@
 #include "LinkedListFunctions.h"
 using namespace std;
 
+//Displays all the nodes of a linked list
 void displayList(Node* node)
 {
 	system("cls");
@@ -17,6 +18,7 @@ void displayList(Node* node)
 	}
 }
 
+//Inserts a node at the beginning of a linked list
 void insertFirstNode(Node** head, string y, string n, string d)
 {
 	Node* newNode = new Node(y, n, d);
@@ -24,10 +26,12 @@ void insertFirstNode(Node** head, string y, string n, string d)
 	*head = newNode;
 }
 
+//Inserts a node at the end of a linked list
 void insertLastNode(Node** head, string y, string n, string d)
 {
 	Node* newNode = new Node(y, n, d);
 
+	//Checks if the list is empty
 	if (*head == NULL)
 	{
 		*head = newNode;
@@ -43,6 +47,7 @@ void insertLastNode(Node** head, string y, string n, string d)
 	tail->setNext(newNode);
 }
 
+//Inserts a node after a given index
 void insertAt(Node* prev, string y, string n, string d)
 {
 	if (prev == NULL)
