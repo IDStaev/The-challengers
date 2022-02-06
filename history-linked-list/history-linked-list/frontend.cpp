@@ -117,6 +117,18 @@ void printMenuOptions(int option, string arrow)
     // End of "Exit"
 }
 
+void allEventsHeading()
+{
+    
+
+        cout << "    _    _ _                        _\n";
+    cout << "   / \\  | | |   _____   _____ _ __ | |_ ___\n";
+    cout << "  / _ \\ | | |  / _ \\ \\ / / _ \\ '_ \\| __/ __|\n";
+   cout << " / ___ \\| | |  | __/\\ V  / __/ | | | |_\\__ \\ \n";
+   cout << "/_/   \\_\\_|_|  \\___| \\_ / \\__|_| |_|\\__|___/ \n";
+   cout << endl; cout << endl;
+
+}
 
 
 void printMenu(int option)

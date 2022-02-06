@@ -5,6 +5,7 @@
 #include "linkedList.h"
 #include "LinkedListFunctions.h"
 #include "backend.h"
+#include "frontend.h"
 using namespace std;
 
 //Displays all the nodes of a linked list
@@ -12,10 +13,11 @@ void displayList(Node* node)
 {
 	
 	system("cls");
+	allEventsHeading();
 	while (node != NULL)
 	{
-		cout << node->getYear() << ", ";
-		cout << node->getName() << ", ";
+		cout << node->getYear() << " | ";
+		cout << node->getName() << " - ";
 		
 		unsigned char ch1 = _getch();
 		if (ch1 == 224)
@@ -32,6 +34,7 @@ void displayList(Node* node)
 		}
 
 	system("cls");
+	runProgram();
 }
 
 
