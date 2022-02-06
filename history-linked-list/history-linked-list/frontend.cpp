@@ -146,6 +146,20 @@ void addAnEventHeading()
 
 }
 
+//function for the heading of Delete an event option
+
+void deleteAnEventHeading()
+{
+
+    cout << "  ____       _      _                                            _" << endl;
+    cout << " |  _ \\  ___| | ___| |_ ___    __ _ _ __     _____   _____ _ __ | |_ " << endl;
+    cout << " | | | |/ _ \\ |/ _ \\ __/ _ \\  / _` | '_ \\   / _ \\ \\ / / _ \\ '_ \\| __|" << endl;
+    cout << " | |_| |  __/ |  __/ ||  __/ | (_| | | | | |  __/\\ V /  __/ | | | |_ " << endl;
+    cout << " |____/ \\___|_|\\___|\\__\\___|  \\__,_|_| |_|  \\___| \\_/ \\___|_| |_|\\__|" << endl;
+    cout << endl;
+    cout << endl;
+
+}
 
 
 void printMenu(int option)
