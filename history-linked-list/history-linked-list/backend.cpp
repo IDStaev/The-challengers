@@ -32,9 +32,7 @@ Node* initializeDefaultUprisings()
 void addAnEvent()
 {
 	system("cls");
-
 	addAnEventHeading();
-
 }
 
 
@@ -43,6 +41,12 @@ void deleteAnEvent()
 {
 	system("cls");
 	deleteAnEventHeading();
+}
+
+void Quiz()
+{
+	system("cls");
+	QuizHeading();
 }
 
 //Base function to run the program
@@ -86,10 +90,10 @@ bool runProgram()
 		{
 			switch (counter)
 			{
-			case 1:  displayList(headDefault); break;
-			case 2:  addAnEvent(); break;
+			case 1: displayList(headDefault); break;
+			case 2: addAnEvent(); break;
 			case 3: deleteAnEvent(); break;
-			case 4: cout << "Quiz" << endl; break;
+			case 4: Quiz(); break;
 			case 5: return 0;
 			}
 		}
