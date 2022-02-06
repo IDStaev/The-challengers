@@ -117,18 +117,35 @@ void printMenuOptions(int option, string arrow)
     // End of "Exit"
 }
 
+//function for the heading of All events option
+
 void allEventsHeading()
 {
-    
-
-        cout << "    _    _ _                        _\n";
-    cout << "   / \\  | | |   _____   _____ _ __ | |_ ___\n";
-    cout << "  / _ \\ | | |  / _ \\ \\ / / _ \\ '_ \\| __/ __|\n";
-   cout << " / ___ \\| | |  | __/\\ V  / __/ | | | |_\\__ \\ \n";
-   cout << "/_/   \\_\\_|_|  \\___| \\_ / \\__|_| |_|\\__|___/ \n";
-   cout << endl; cout << endl;
+   cout << "    _    _ _                        _" << endl;
+   cout << "   / \\  | | |   _____   _____ _ __ | |_ ___" << endl;
+   cout << "  / _ \\ | | |  / _ \\ \\ / / _ \\ '_ \\| __/ __|" << endl;
+   cout << " / ___ \\| | |  | __/\\ V  / __/ | | | |_\\__ \\" << endl;
+   cout << "/_/   \\_\\_|_|  \\___| \\_ / \\__|_| |_|\\__|___/ " << endl;
+   cout << endl;
+   cout << endl;
 
 }
+
+//function for the heading of Add an event option
+
+void addAnEventHeading()
+{
+    
+    cout << "    _       _     _                                      _"<< endl;
+    cout << "   / \\   __| | __| |   __ _ _ __     _____   _____ _ __ | |_" << endl;
+    cout << "  / _ \\ / _` |/ _` |  / _` | '_ \\   / _ \\ \\ / / _ \\ '_ \\| __|" << endl;
+    cout << " / ___ \\ (_| | (_| | | (_| | | | | |  __/\\ V /  __/ | | | |_" << endl;
+    cout << "/_/   \\_\\__,_|\\__,_|  \\__,_|_| |_|  \\___| \\_/ \\___|_| |_|\\__|" << endl;
+    cout << endl;
+    cout << endl;
+
+}
+
 
 
 void printMenu(int option)
