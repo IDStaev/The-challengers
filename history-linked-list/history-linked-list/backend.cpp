@@ -9,6 +9,32 @@
 
 using namespace std;
 
+string grayToBin(string gray)
+{
+	string	bin = gray;
+
+	for (size_t i = 1; i < gray.size(); i++)
+	{
+		bin[i] = char(int(bin[i - 1]) ^ int(gray[i] - '0'));
+	}
+
+	return bin;
+}
+
+string grayToDec(string gray)
+{
+	string bin = grayToBin(gray);
+	int dec = 0;
+
+	for (size_t i = 0; i < bin.size(); i++)
+	{
+		if (bin[i] == '1')
+			dec += pow(2, bin.size() - i - 1);
+	}
+
+	return to_string(dec);
+}
+
 string swapStr(string str)
 {
 	char temp;
@@ -35,7 +61,6 @@ string decToBin(string dec)
 
 	return swapStr(bin);
 }
-
 
 string decToGray(string dec)
 {
@@ -84,7 +109,7 @@ void deleteAnEvent()
 void Quiz()
 {
 	system("cls");
-	QuizHeading();
+	quizHeading();
 }
 
 //Base function to run the program

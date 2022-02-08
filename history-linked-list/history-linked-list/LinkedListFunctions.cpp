@@ -15,7 +15,7 @@ void displayList(Node* node)
 
 	while (node != NULL)
 	{
-		cout << node->getYear() << " | ";
+		cout << grayToDec(node->getYear()) << " | ";
 		cout << node->getName();
 
 		unsigned char ch1 = _getch();

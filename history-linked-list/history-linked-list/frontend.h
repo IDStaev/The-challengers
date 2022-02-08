@@ -9,4 +9,4 @@ void printMenu(int option);
 void allEventsHeading();
 void addAnEventHeading();
 void deleteAnEventHeading();
-void QuizHeading();
+void quizHeading();

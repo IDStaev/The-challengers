@@ -161,7 +161,7 @@ void deleteAnEventHeading()
 
 }
 
-void QuizHeading()
+void quizHeading()
 {
 
     cout << "  ___        _" << endl;
