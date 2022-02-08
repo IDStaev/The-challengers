@@ -55,9 +55,9 @@ bool runProgram()
 	Node* headDefault = initializeDefaultUprisings();
 
 	int counter = 1;
-	
+
 	printMenu(counter);
-	
+
 	//Changes arrow position of the menu
 	do
 	{
@@ -90,7 +90,17 @@ bool runProgram()
 		{
 			switch (counter)
 			{
-			case 1: displayList(headDefault); break;
+			case 1:
+			{
+				system("cls");
+				displayList(headDefault);
+				system("cls");
+
+				printMenu(counter);
+
+				break;
+			}
+
 			case 2: addAnEvent(); break;
 			case 3: deleteAnEvent(); break;
 			case 4: Quiz(); break;
@@ -101,4 +111,3 @@ bool runProgram()
 
 	return 1;
 }
-

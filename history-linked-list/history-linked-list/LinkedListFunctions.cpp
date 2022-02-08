@@ -11,30 +11,28 @@ using namespace std;
 //Displays all the nodes of a linked list
 void displayList(Node* node)
 {
-	
-	system("cls");
 	allEventsHeading();
+
 	while (node != NULL)
 	{
 		cout << node->getYear() << " | ";
-		cout << node->getName() << " - ";
-		
+		cout << node->getName();
+
 		unsigned char ch1 = _getch();
 		if (ch1 == 224)
 		{
 			unsigned char ch2 = _getch();
-			
-			cout << node->getInfo(); 
-			
-		} 
-			cout << endl;
-			cout << endl;
-		
-			node = node->getNext();
+
+			if (ch2 == 77)
+				cout << " - " << node->getInfo();
 		}
 
-	system("cls");
-	runProgram();
+		cout << endl << endl;
+
+		node = node->getNext();
+	}
+
+	system("pause");
 }
 
 
