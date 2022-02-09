@@ -29,7 +29,7 @@ string grayToDec(string gray)
 	for (size_t i = 0; i < bin.size(); i++)
 	{
 		if (bin[i] == '1')
-			dec += pow(2, bin.size() - i - 1);
+			dec += int(pow(2, bin.size() - i - 1));
 	}
 
 	return to_string(dec);
@@ -95,6 +95,20 @@ Node* initializeDefaultUprisings()
 	return headDefault;
 }
 
+bool checkIfValidYear(string year)
+{
+	if (stoi(year) > 2022 || stoi(year) <= 0)
+		return false;
+
+	for (size_t i = 0; i < year.size(); i++)
+	{
+		if (year[i] < '0' || year[i]>'9')
+			return false;
+	}
+
+	return true;
+}
+
 void addAnEvent(Node** head)
 {
 	addAnEventHeading();
@@ -104,7 +118,21 @@ void addAnEvent(Node** head)
 	string info;
 
 	cout << "Enter the year of the event: ";
-	cin >> year;
+
+	try
+	{
+		cin >> year;
+		if (!checkIfValidYear(year)) throw 1;
+	}
+	catch (int a)
+	{
+		do
+		{
+			cout << "\tPlease enter a valid year: ";
+			cin >> year;
+		} while (!checkIfValidYear(year));
+	}
+
 
 	cout << "Enter the name of the event: ";
 	cin >> name;
