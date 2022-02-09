@@ -85,6 +85,7 @@ Node* initializeDefaultUprisings()
 	insertLastNode(&headDefault, decToGray("1598"), "First Tarnovo Uprising", "In 1593 a war broke out between the Ottomans and the Habsburg Empire. Then the First Tarnovo Uprising began to take shape. Leaders are Theodore Balina and Dionysius Rally. A large-scale conspiracy network has been set up. The revolt was announced after the invasion of the Wallachian voivode Mircho Hrabri near Silistra. In Tarnovo, Theodore Balina was proclaimed king under the name Shishman IV. After the Wallachian detachments withdrew, the Ottomans captured and plundered Tarnovo.");
 	insertLastNode(&headDefault, decToGray("1686"), "Second Tarnovo Uprising", "In 1686 the Second Tarnovo Uprising was declared in Tarnovo. The leader is Roscislav Stratimirovich. The conspiracy was exposed due to the betrayal of a Greek and some of the leaders were executed. The insurgents acted quickly and took control of Tarnovo, and the movement spread to Silistra, Gabrovo, Troyan and others. The Ottoman army was sent, which reached the former capital and captured it. Meanwhile, the rebels withdrew to the Gabrovo Balkans, where they formed a new detachment, reinforced by a detachment. Their last battle was near Sofia, where the revolt was finally put down.");
 	insertLastNode(&headDefault, decToGray("1688"), "The Chiprovtsi Uprising", "Leaders are Petar Parcevic and Georgi Pejacevic. It is due to the Habsburg entry into Belgrade. The rebels captured Kutlovitsa (today's Montana), and Orthodox Bulgarians from the northwest rose with them. Hungarian Protestants helped the Ottomans, who subjugated the center of Chiprovets and suppressed the uprising.");
+	
 	insertLastNode(&headDefault, decToGray("1689"), "Uprising of Karpos", "Bulgarians from southwestern Macedonia are revolting, led by Karposh. Kumanovo and Skopje were captured, and Karposh was awarded the rank of general by Leopold I, but after the forced withdrawal of his army to the west, the Ottomans suppressed the revolt.");
 	insertLastNode(&headDefault, decToGray("1829"), "Thracian Uprising", "It happened after the capture of Sozopol by the Russians. The population of Strandzha rose with modern weapons from the Russian army and captured Sliven. It spread all the way to Lozengrad and Luleburg, but with the signing of a truce between St. Petersburg and the High Gate, the insurgent detachments were disbanded.");
 	insertLastNode(&headDefault, decToGray("1875"), "Stara Zagora Uprising", "Georgi Rakovski created the organized national liberation movement, the BRCC appeared, and Vasil Levski began to build his committee network. The goal is liberation through universal rebellion. An attempt to do so was made in 1875 with the so-called Stara Zagora Uprising. The revolution in Bosnia and Herzegovina is a favorable condition, which is why they decided to revolt, but make many mistakes, such as lack of preparation, have a weak committee network, and an unstable Central Committee. On the agreed date, only a small group of the Stara Zagora Committee took action.");
@@ -94,10 +95,24 @@ Node* initializeDefaultUprisings()
 	return headDefault;
 }
 
-void addAnEvent()
+void addAnEvent(Node** head)
 {
-	system("cls");
 	addAnEventHeading();
+
+	string year;
+	string name;
+	string info;
+
+	cout << "Enter the year of the event: ";
+	cin >> year;
+
+	cout << "Enter the name of the event: ";
+	cin >> name;
+
+	cout << "Enter the information about the event: ";
+	cin >> info;
+
+	insertLastNode(head, decToGray(year), name, info);
 }
 
 void deleteAnEvent()
@@ -164,7 +179,16 @@ bool runProgram()
 				break;
 			}
 
-			case 2: addAnEvent(); break;
+			case 2:
+			{
+				system("cls");
+				addAnEvent(&headDefault);
+				system("cls");
+
+				printMenu(counter);
+
+				break;
+			}
 			case 3: deleteAnEvent(); break;
 			case 4: Quiz(); break;
 			case 5: return 0;
