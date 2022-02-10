@@ -44,8 +44,6 @@ void displayList(Node* node)
 	system("pause");
 }
 
-
-
 //Inserts a node at the beginning of a linked list
 void insertFirstNode(Node** head, string y, string n, string d)
 {
@@ -88,4 +86,15 @@ void insertAt(Node* prev, string y, string n, string d)
 
 	newNode->setNext(prev->getNext());
 	prev->setNext(newNode);
+}
+
+int getNodeCount(Node* node)
+{
+	int count = 0;
+	while (node != NULL)
+	{
+		node = node->getNext();
+		count++;
+	}
+	return count;
 }

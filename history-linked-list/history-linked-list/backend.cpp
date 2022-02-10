@@ -148,10 +148,56 @@ void addAnEvent(Node** head)
 	insertLastNode(head, decToGray(year), name, info);
 }
 
-void deleteAnEvent()
+void displayDeleteMenu(Node* head, int option)
 {
-	system("cls");
+	int nodeCount = getNodeCount(head);
+
+	for (int i = 1; i <= nodeCount; i++)
+	{
+		if (i == option) cout << "->";
+		else cout << "  ";
+
+		cout << grayToDec(head->getYear()) << " | " << head->getName() << endl;
+
+		head = head->getNext();
+	}
+}
+
+void deleteAnEvent(Node** head)
+{
+	int option = 1;
+
 	deleteAnEventHeading();
+	displayDeleteMenu(*head, option);
+
+	do
+	{
+		unsigned char ch1 = _getch();
+		if (ch1 == 224)
+		{
+			unsigned char ch2 = _getch();
+			if (ch2 == 72)
+			{
+				if (option != 1)
+				{
+					option--;
+				}
+			}
+			else if (ch2 == 80)
+			{
+				if (option != getNodeCount(*head))
+				{
+					option++;
+				}
+			}
+		}
+		system("cls");
+
+		deleteAnEventHeading();
+		displayDeleteMenu(*head, option);
+	} while (true);
+
+	cout << getNodeCount(*head);
 }
 
 void Quiz()
@@ -211,7 +257,6 @@ bool runProgram()
 
 				break;
 			}
-
 			case 2:
 			{
 				system("cls");
@@ -222,7 +267,16 @@ bool runProgram()
 
 				break;
 			}
-			case 3: deleteAnEvent(); break;
+			case 3:
+			{
+				system("cls");
+				deleteAnEvent(&headDefault);
+				system("cls");
+
+				printMenu(counter);
+
+				break;
+			}
 			case 4: Quiz(); break;
 			case 5: return 0;
 			}
