@@ -97,7 +97,7 @@ Node* initializeDefaultUprisings()
 
 bool checkIfValidYear(string year)
 {
-	if (stoi(year) > 2022 || stoi(year) <= 0)
+	if (year.size() == 0)
 		return false;
 
 	for (size_t i = 0; i < year.size(); i++)
@@ -105,6 +105,9 @@ bool checkIfValidYear(string year)
 		if (year[i] < '0' || year[i]>'9')
 			return false;
 	}
+
+	if (stoi(year) > 2022 || stoi(year) <= 0)
+		return false;
 
 	return true;
 }
@@ -117,11 +120,11 @@ void addAnEvent(Node** head)
 	string name;
 	string info;
 
-	cout << "Enter the year of the event: ";
+	cout << "Enter the year of the start of the event: ";
 
 	try
 	{
-		cin >> year;
+		getline(cin, year);
 		if (!checkIfValidYear(year)) throw 1;
 	}
 	catch (int a)
@@ -129,16 +132,15 @@ void addAnEvent(Node** head)
 		do
 		{
 			cout << "\n\tPlease enter a valid year: ";
-			cin >> year;
+			getline(cin, year);
 		} while (!checkIfValidYear(year));
 	}
 
-
 	cout << "\nEnter the name of the event: ";
-	cin >> name;
+	getline(cin, name);
 
 	cout << "\nEnter the information about the event: ";
-	cin >> info;
+	getline(cin, info);
 
 	insertLastNode(head, decToGray(year), name, info);
 }
