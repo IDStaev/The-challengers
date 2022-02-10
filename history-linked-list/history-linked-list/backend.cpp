@@ -128,16 +128,16 @@ void addAnEvent(Node** head)
 	{
 		do
 		{
-			cout << "\tPlease enter a valid year: ";
+			cout << "\n\tPlease enter a valid year: ";
 			cin >> year;
 		} while (!checkIfValidYear(year));
 	}
 
 
-	cout << "Enter the name of the event: ";
+	cout << "\nEnter the name of the event: ";
 	cin >> name;
 
-	cout << "Enter the information about the event: ";
+	cout << "\nEnter the information about the event: ";
 	cin >> info;
 
 	insertLastNode(head, decToGray(year), name, info);
