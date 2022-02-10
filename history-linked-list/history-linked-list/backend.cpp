@@ -184,6 +184,11 @@ void deleteNode(Node* head, int index)
 	delete temp;
 }
 
+void deleteFirstNode(Node** head)
+{
+	*head = (*head)->getNext();
+}
+
 bool deleteAnEvent(Node** head)
 {
 	int option = 1;
@@ -227,7 +232,6 @@ bool deleteAnEvent(Node** head)
 					if (_getch())
 					{
 						system("cls");
-						break;
 					}
 				}
 				else
@@ -251,7 +255,15 @@ bool deleteAnEvent(Node** head)
 
 					if (userImput == "y" || userImput == "Y")
 					{
-						deleteNode(*head, option);
+						if (option == 1)
+						{
+							deleteFirstNode(&*head);
+						}
+						else
+						{
+							deleteNode(*head, option);
+						}
+
 						nodeCount--;
 						cout << "  Done!\n";
 					}

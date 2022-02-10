@@ -12,5 +12,6 @@ void addAnEvent(Node** head);
 bool deleteAnEvent(Node** head);
 void displayDeleteMenu(Node* head, int option);
 void deleteNode(Node* head, int index);
+void deleteFirstNode(Node** head);
 bool runProgram();
 Node* initializeDefaultUprisings();
