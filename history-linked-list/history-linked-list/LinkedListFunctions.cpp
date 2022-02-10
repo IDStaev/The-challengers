@@ -88,13 +88,8 @@ void insertAt(Node* prev, string y, string n, string d)
 	prev->setNext(newNode);
 }
 
-int getNodeCount(Node* node)
+int getNodeCount(Node* node, int count)
 {
-	int count = 0;
-	while (node != NULL)
-	{
-		node = node->getNext();
-		count++;
-	}
-	return count;
+	if (node == NULL) return count;
+	return getNodeCount(node->getNext(), count + 1);
 }

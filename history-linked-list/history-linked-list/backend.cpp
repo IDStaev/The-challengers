@@ -127,16 +127,13 @@ void addAnEvent(Node** head)
 		getline(cin, year);
 		if (!checkIfValidYear(year)) throw 0;
 	}
-	catch (int excCode)
+	catch (...)
 	{
-		if (excCode == 0)
+		do
 		{
-			do
-			{
-				cout << "\n\tPlease enter a valid year: ";
-				getline(cin, year);
-			} while (!checkIfValidYear(year));
-		}
+			cout << "\n\tPlease enter a valid year: ";
+			getline(cin, year);
+		} while (!checkIfValidYear(year));
 	}
 
 	cout << "\nEnter the name of the event: ";
@@ -161,11 +158,36 @@ void displayDeleteMenu(Node* head, int option)
 
 		head = head->getNext();
 	}
+
+	cout << endl;
+	if (option == nodeCount + 1) cout << "->";
+	else cout << "  ";
+	cout << "Go back" << endl;
 }
 
-void deleteAnEvent(Node** head)
+bool checkIfValidUserImput(string userImput)
+{
+	if (userImput != "y" && userImput != "n" && userImput != "Y" && userImput != "N")
+		return false;
+	return true;
+}
+
+void deleteNode(Node* head, int index)
+{
+	for (int i = 1; i < index - 1; i++)
+	{
+		head = head->getNext();
+	}
+
+	Node* temp = head->getNext();
+	head->setNext(head->getNext()->getNext());
+	delete temp;
+}
+
+bool deleteAnEvent(Node** head)
 {
 	int option = 1;
+	int nodeCount = getNodeCount(*head);
 
 	deleteAnEventHeading();
 	displayDeleteMenu(*head, option);
@@ -185,9 +207,54 @@ void deleteAnEvent(Node** head)
 			}
 			else if (ch2 == 80)
 			{
-				if (option != getNodeCount(*head))
+				if (option != nodeCount + 1)
 				{
 					option++;
+				}
+			}
+		}
+		else if (ch1 == 13)
+		{
+			if (option == nodeCount + 1)
+			{
+				return 0;
+			}
+			else
+			{
+				if ((*head)->getNext() == NULL)
+				{
+					cout << "\n  You must have at least one event!\n";
+					if (_getch())
+					{
+						system("cls");
+						break;
+					}
+				}
+				else
+				{
+					string userImput;
+					cout << "\n  Are you sure you want to delete this event? (y/n): ";
+					try
+					{
+						getline(cin, userImput);
+						if (!checkIfValidUserImput(userImput))
+							throw 0;
+					}
+					catch (...)
+					{
+						do
+						{
+							cout << "\tPlease eneter a valid command: ";
+							getline(cin, userImput);
+						} while (!checkIfValidUserImput(userImput));
+					}
+
+					if (userImput == "y" || userImput == "Y")
+					{
+						deleteNode(*head, option);
+						nodeCount--;
+						cout << "  Done!\n";
+					}
 				}
 			}
 		}
@@ -195,9 +262,10 @@ void deleteAnEvent(Node** head)
 
 		deleteAnEventHeading();
 		displayDeleteMenu(*head, option);
+
 	} while (true);
 
-	cout << getNodeCount(*head);
+	return 1;
 }
 
 void Quiz()
@@ -270,7 +338,10 @@ bool runProgram()
 			case 3:
 			{
 				system("cls");
-				deleteAnEvent(&headDefault);
+				while (deleteAnEvent(&headDefault))
+				{
+					deleteAnEvent(&headDefault);
+				}
 				system("cls");
 
 				printMenu(counter);
