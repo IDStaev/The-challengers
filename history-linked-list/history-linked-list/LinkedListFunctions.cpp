@@ -27,9 +27,18 @@ void displayList(Node* node)
 				cout << " - " << node->getInfo();
 		}
 
-		cout << endl << endl;
-
 		node = node->getNext();
+
+		if (ch1 == 9)
+		{
+			while (node != NULL)
+			{
+				cout << endl << endl << grayToDec(node->getYear()) << " | " << node->getName();
+				node = node->getNext();
+			}
+		}
+
+		cout << endl << endl;
 	}
 
 	system("pause");

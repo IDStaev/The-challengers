@@ -125,15 +125,18 @@ void addAnEvent(Node** head)
 	try
 	{
 		getline(cin, year);
-		if (!checkIfValidYear(year)) throw 1;
+		if (!checkIfValidYear(year)) throw 0;
 	}
-	catch (int a)
+	catch (int excCode)
 	{
-		do
+		if (excCode == 0)
 		{
-			cout << "\n\tPlease enter a valid year: ";
-			getline(cin, year);
-		} while (!checkIfValidYear(year));
+			do
+			{
+				cout << "\n\tPlease enter a valid year: ";
+				getline(cin, year);
+			} while (!checkIfValidYear(year));
+		}
 	}
 
 	cout << "\nEnter the name of the event: ";
