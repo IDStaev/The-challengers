@@ -120,7 +120,7 @@ void addAnEvent(Node** head)
 	string name;
 	string info;
 
-	cout << "Enter the year of the start of the event: ";
+	cout << "Enter the year that the event had started: ";
 
 	try
 	{
