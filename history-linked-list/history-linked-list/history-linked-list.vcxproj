@@ -144,12 +144,14 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="LinkedListFunctions.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Quiz.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backend.h" />
     <ClInclude Include="frontend.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedListFunctions.h" />
+    <ClInclude Include="Quiz.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
