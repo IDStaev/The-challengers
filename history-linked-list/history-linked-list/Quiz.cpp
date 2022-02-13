@@ -3,20 +3,31 @@
 #include <string>
 using namespace std;
 
-Quiz::Quiz(string answ, vector<string> incorrectAnsw)
+Quiz::Quiz(string question, string answer, vector<string> incorrectAnswer)
 {
-	answer = answ;
-	incorrectAnswer = incorrectAnsw;
+	this->question = question;
+	this->answer = answer;
+	this->incorrectAnswer = incorrectAnswer;
 }
 
-void Quiz::setAnswer(string answ)
+void Quiz::setQuestion(string question)
 {
-	answer = answ;
+	this->question = question;
 }
 
-void Quiz::setIncorrectAnswer(vector<string> incorrectAnsw)
+void Quiz::setAnswer(string answer)
 {
-	incorrectAnswer = incorrectAnsw;
+	this->answer = answer;
+}
+
+void Quiz::setIncorrectAnswer(vector<string> incorrectAnswer)
+{
+	this->incorrectAnswer = incorrectAnswer;
+}
+
+string Quiz::getQuestion()
+{
+	return question;
 }
 
 string Quiz::getAnswer()
@@ -24,7 +35,7 @@ string Quiz::getAnswer()
 	return answer;
 }
 
-vector<string> Quiz::setIncorrectAnswer()
+vector<string> Quiz::getIncorrectAnswer()
 {
 	return incorrectAnswer;
 }

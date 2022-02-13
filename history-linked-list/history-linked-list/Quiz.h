@@ -6,13 +6,16 @@ using namespace std;
 class Quiz
 {
 public:
-	Quiz(string answ, vector<string> incorrectAnsw);
+	Quiz(string question, string answ, vector<string> incorrectAnsw);
+	void setQuestion(string question);
 	void setAnswer(string answ);
 	void setIncorrectAnswer(vector<string> incorrectAnsw);
+	string getQuestion();
 	string getAnswer();
-	vector<string> setIncorrectAnswer();
+	vector<string> getIncorrectAnswer();
 
 private:
+	string question;
 	string answer;
 	vector<string> incorrectAnswer;
 };

@@ -1,11 +1,14 @@
 #include <iostream>
 #include <conio.h>
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
 
 #include "backend.h"
 #include "frontend.h"
 #include "LinkedList.h"
 #include "LinkedListFunctions.h"
+#include "Quiz.h"
 
 using namespace std;
 
@@ -280,15 +283,113 @@ bool deleteAnEvent(Node** head)
 	return 1;
 }
 
-void Quiz()
+vector<Quiz> initializeQuiz()
 {
-	system("cls");
+	vector<Quiz> quiz;
+	quiz.push_back({ "Where does the uprising of Peter Delyan start?", "Belgrade", {"Tarnovo", "Sozopol"} });
+	quiz.push_back({ "When did the uprising of Georgi Voitech and Konstantin Bodin started? ", "1072", {"1185", "1130"} });
+	quiz.push_back({ "Which era began after the successful uprising of Assen and Peter?", "Second Bulgarian Kingdom", {"First Bulgarian Kingdom", "Third Bulgarian Kingdom"} });
+	quiz.push_back({ "By whom was supported the uprising of Constantine and Fruzhin?", "Hungary and Wallachia", {"Ottoman Empire", "Serbia"} });
+	quiz.push_back({ "Who were the leaders of First Tarnovo Uprising?", "Theodore Balina and Dionysius Rally", {"Vasil Levski", "Kiril and Metodii"} });
+	quiz.push_back({ "When did the uprising of Karpos started?", "1689", {"1677", "1691"} });
+	quiz.push_back({ "Where was the Giurgiu Committee formed?", "Romania", {"Bulgaria", "Turkey"} });
+
+	return quiz;
+}
+
+void displayQuestion(Quiz quiz, int option, int n)
+{
+	cout << quiz.getQuestion() << endl << endl;
+
+	if (n % 2 == 0)
+	{
+		vector<string> temp = { quiz.getIncorrectAnswer()[1], quiz.getIncorrectAnswer()[0] };
+		quiz.setIncorrectAnswer(temp);
+	}
+
+	option == 1 ? cout << "-> " : cout << "   ";
+	n / 2 != 0 ? cout << quiz.getIncorrectAnswer()[0] << endl : cout << quiz.getAnswer() << endl;
+
+	option == 2 ? cout << "-> " : cout << "   ";
+	if (n / 2 == 0) cout << quiz.getIncorrectAnswer()[0] << endl;
+	else if (n / 2 == 1) cout << quiz.getAnswer() << endl;
+	else cout << quiz.getIncorrectAnswer()[1] << endl;
+
+	option == 3 ? cout << "-> " : cout << "   ";
+	n / 2 != 2 ? cout << quiz.getIncorrectAnswer()[1] << endl : cout << quiz.getAnswer() << endl;
+}
+
+bool submitAnswer(int option, int r)
+{
+	if ((r == 0 || r == 1) && option == 1) return true;
+	if ((r == 2 || r == 3) && option == 2) return true;
+	if ((r == 4 || r == 5) && option == 3) return true;
+	return false;
+}
+
+bool runQuiz()
+{
+	srand(unsigned(time(NULL)));
+
+	vector<Quiz> quiz = initializeQuiz();
+	int option = 1;
+	int correct = 0;
+	bool flag = true;
+
 	quizHeading();
+
+	for (size_t i = 0; i < quiz.size(); i++)
+	{
+		int r = rand() % 6;
+		flag = true;
+
+		do
+		{
+			cout << i + 1 << ". ";
+			displayQuestion(quiz[i], option, r);
+
+			unsigned char ch1 = _getch();
+			if (ch1 == 224)
+			{
+				unsigned char ch2 = _getch();
+				if (ch2 == 72)
+				{
+					if (option != 1)
+					{
+						option--;
+					}
+				}
+				else if (ch2 == 80)
+				{
+					if (option != 3)
+					{
+						option++;
+					}
+				}
+			}
+			else if (ch1 == 13)
+			{
+				if (submitAnswer(option, r)) correct++;
+				flag = false;
+			}
+
+			system("cls");
+			quizHeading();
+		} while (flag);
+	}
+
+	cout << "  FINAL SCORE: " << correct << " correct out of " << quiz.size() << "!\n";
+	cout << "  You got " << double(correct) / double(quiz.size()) * 100 << "%\n\n";
+
+	system("pause");
+
+	return 0;
 }
 
 //Base function to run the program
 bool runProgram()
 {
+	
 	Node* headDefault = initializeDefaultUprisings();
 
 	int counter = 1;
@@ -360,7 +461,19 @@ bool runProgram()
 
 				break;
 			}
-			case 4: Quiz(); break;
+			case 4:
+			{
+				system("cls");
+				while (runQuiz())
+				{
+					runQuiz();
+				}
+				system("cls");
+
+				printMenu(counter);
+
+				break;
+			}
 			case 5: return 0;
 			}
 		}
