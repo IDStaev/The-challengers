@@ -1,5 +1,5 @@
 # Hi, we are team Challengers! 🎯
-<img src="history-linked-list/history-linked-list/Pictures/logo-cropped.png" width="300px">
+<img src="Logo/The_Challengers1.png" width="200px">
 
 # Our team 🙋‍♀️🙋‍♂️:
 - Dimitur Berdankov 10<sup>A</sup> *<DHBerdankov19@codingburgas.bg>* - QA
