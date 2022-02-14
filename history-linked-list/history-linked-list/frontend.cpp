@@ -42,12 +42,12 @@ void printMenuOptions(int option, string arrow)
     cout << setw(30);
     cout << "     | |                     _______________________________________                       | |" << endl;
     cout << "     | |                    |  ___________________________________  |                      | |" << endl;
-    cout << setw(40);
+    cout << setw(41);
 
-    cout << "| |                    | |         ";
+    cout << "| |                    | |          ";
     if (option == 1)cout << "=>";
     else cout << "  ";
-    cout << " All Events             | |                      | |\n";
+    cout << " All Events            | |                      | |\n";
     cout << "     | |                    | |___________________________________| |                      | |" << endl;
     cout << "     | |                    |_______________________________________|                      | |" << endl;
 
