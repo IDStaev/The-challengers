@@ -8,6 +8,8 @@
 
 using namespace std;
 
+//Prints the border and the title
+
 void printMenuHeading(int option)
 {
     cout << "      _______________________________________________________________________________________" << endl;
@@ -35,6 +37,8 @@ void printMenuHeading(int option)
 
 }
 
+//Prints buttons in the main menu
+
 void printMenuOptions(int option, string arrow)
 {
     // Start of "All events"
@@ -42,12 +46,12 @@ void printMenuOptions(int option, string arrow)
     cout << setw(30);
     cout << "     | |                     _______________________________________                       | |" << endl;
     cout << "     | |                    |  ___________________________________  |                      | |" << endl;
-    cout << setw(40);
+    cout << setw(41);
 
-    cout << "| |                    | |         ";
+    cout << "| |                    | |          ";
     if (option == 1)cout << "=>";
     else cout << "  ";
-    cout << " All Events             | |                      | |\n";
+    cout << " All Events            | |                      | |\n";
     cout << "     | |                    | |___________________________________| |                      | |" << endl;
     cout << "     | |                    |_______________________________________|                      | |" << endl;
 
@@ -120,6 +124,7 @@ void printMenuOptions(int option, string arrow)
 }
 
 //function for the heading of All events option
+
 void allEventsHeading()
 {
    cout << "    _    _ _                        _" << endl;
@@ -133,6 +138,7 @@ void allEventsHeading()
 }
 
 //function for the heading of Add an event option
+
 void addAnEventHeading()
 {
     
@@ -147,6 +153,7 @@ void addAnEventHeading()
 }
 
 //function for the heading of Delete an event option
+
 void deleteAnEventHeading()
 {
 
@@ -159,6 +166,8 @@ void deleteAnEventHeading()
     cout << endl;
 
 }
+
+//function for the heading of Quiz
 
 void quizHeading()
 {
