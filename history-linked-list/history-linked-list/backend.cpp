@@ -26,9 +26,11 @@ string grayToBin(string gray)
 
 string grayToDec(string gray)
 {
+	//Converts gray to binary
 	string bin = grayToBin(gray);
 	int dec = 0;
 
+	//Converts binary to decimal
 	for (size_t i = 0; i < bin.size(); i++)
 	{
 		if (bin[i] == '1')
@@ -38,6 +40,7 @@ string grayToDec(string gray)
 	return to_string(dec);
 }
 
+//Reverses a string
 string swapStr(string str)
 {
 	char temp;
@@ -67,11 +70,13 @@ string decToBin(string dec)
 
 string decToGray(string dec)
 {
+	//Converts decimal to binary
 	string bin = decToBin(dec);
 	string gray = bin;
 
 	for (size_t i = 1; i < bin.size(); i++)
 	{
+		//Operates xor operation to every two bits
 		gray[i] = char((int(bin[i - 1]) ^ int(bin[i] - '0')));
 	}
 
@@ -99,15 +104,18 @@ Node* initializeDefaultUprisings()
 
 bool checkIfValidYear(string year)
 {
+	//If empty
 	if (year.size() == 0)
 		return false;
 
+	//Checks if its all digits
 	for (size_t i = 0; i < year.size(); i++)
 	{
 		if (year[i] < '0' || year[i]>'9')
 			return false;
 	}
 
+	//Checks if its existing year
 	if (stoi(year) > 2022 || stoi(year) <= 0)
 		return false;
 
@@ -124,13 +132,17 @@ void addAnEvent(Node** head)
 
 	cout << "Enter the year that the event had started: ";
 
+	//Tries to enter the year
 	try
 	{
 		getline(cin, year);
+		
+		//Checks if the year is valid
 		if (!checkIfValidYear(year)) throw 0;
 	}
 	catch (...)
 	{
+		//While the year is not valid enter it again
 		do
 		{
 			cout << "\n\tPlease enter a valid year: ";
@@ -147,6 +159,7 @@ void addAnEvent(Node** head)
 	insertLastNode(head, decToGray(year), name, info);
 }
 
+//Displays the avalable nodes in the delete menu
 void displayDeleteMenu(Node* head, int option)
 {
 	int nodeCount = getNodeCount(head);
@@ -167,6 +180,7 @@ void displayDeleteMenu(Node* head, int option)
 	cout << "Go back" << endl;
 }
 
+//Ensures that the user has entered valid command
 bool checkIfValidUserImput(string userImput)
 {
 	if (userImput != "y" && userImput != "n" && userImput != "Y" && userImput != "N")
@@ -174,6 +188,7 @@ bool checkIfValidUserImput(string userImput)
 	return true;
 }
 
+//Deletes a node at a given index
 void deleteNode(Node* head, int index)
 {
 	for (int i = 1; i < index - 1; i++)
@@ -186,11 +201,13 @@ void deleteNode(Node* head, int index)
 	delete temp;
 }
 
+//Deletes the first node
 void deleteFirstNode(Node** head)
 {
 	*head = (*head)->getNext();
 }
 
+//Runs the whole delete an event menu
 bool deleteAnEvent(Node** head)
 {
 	int option = 1;
@@ -202,6 +219,7 @@ bool deleteAnEvent(Node** head)
 	do
 	{
 		unsigned char ch1 = _getch();
+		//Arrows
 		if (ch1 == 224)
 		{
 			unsigned char ch2 = _getch();
@@ -220,10 +238,12 @@ bool deleteAnEvent(Node** head)
 				}
 			}
 		}
+		//Enter
 		else if (ch1 == 13)
-		{
+		{	
 			if (option == nodeCount + 1)
 			{
+				//Go back
 				return 0;
 			}
 			else
@@ -238,6 +258,7 @@ bool deleteAnEvent(Node** head)
 				}
 				else
 				{
+					//Ensures that the user wants to delete the event
 					string userImput;
 					cout << "\n  Are you sure you want to delete this event? (y/n): ";
 					try
@@ -248,6 +269,7 @@ bool deleteAnEvent(Node** head)
 					}
 					catch (...)
 					{
+						//While the user keeps enetring invalid command will ask again
 						do
 						{
 							cout << "\tPlease eneter a valid command: ";
@@ -255,6 +277,7 @@ bool deleteAnEvent(Node** head)
 						} while (!checkIfValidUserImput(userImput));
 					}
 
+					//If the user has agreed on deleting
 					if (userImput == "y" || userImput == "Y")
 					{
 						if (option == 1)
@@ -282,6 +305,7 @@ bool deleteAnEvent(Node** head)
 	return 1;
 }
 
+//Initializes the questions for the quiz
 vector<Quiz> initializeQuiz()
 {
 	vector<Quiz> quiz;
@@ -292,10 +316,13 @@ vector<Quiz> initializeQuiz()
 	quiz.push_back({ "Who were the leaders of First Tarnovo Uprising?", "Theodore Balina and Dionysius Rally", {"Vasil Levski", "Kiril and Metodii"} });
 	quiz.push_back({ "When did the uprising of Karpos started?", "1689", {"1677", "1691"} });
 	quiz.push_back({ "Where was the Giurgiu Committee formed?", "Romania", {"Bulgaria", "Turkey"} });
+	quiz.push_back({ "When did Bulgaria liberate?", "1878", {"1880", "1914"} });
+	quiz.push_back({ "When did Todor Kableshkov send the \"Bloody Letter\"? (1876)", "April 20th", {"May 1st", "March 3rd"} });
 
 	return quiz;
 }
 
+//Displays the qestion and the answers in a random way based on a random number n
 void displayQuestion(Quiz quiz, int option, int n)
 {
 	cout << quiz.getQuestion() << endl << endl;
@@ -321,6 +348,7 @@ void displayQuestion(Quiz quiz, int option, int n)
 	n / 2 != 2 ? cout << quiz.getIncorrectAnswer()[1] << endl : cout << quiz.getAnswer() << endl;
 }
 
+//Checks if the answer is correct
 bool submitAnswer(int option, int r)
 {
 	if ((r == 0 || r == 1) && option == 1) return true;
@@ -329,6 +357,7 @@ bool submitAnswer(int option, int r)
 	return false;
 }
 
+//Shuffles the questions randomly
 vector<Quiz> randomizeQuiz(vector<Quiz> quiz)
 {
 	int n;
@@ -342,6 +371,7 @@ vector<Quiz> randomizeQuiz(vector<Quiz> quiz)
 	return quiz;
 }
 
+//Runs the main quiz menu
 bool runQuiz()
 {
 	srand(unsigned(time(NULL)));
