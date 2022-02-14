@@ -120,7 +120,6 @@ void printMenuOptions(int option, string arrow)
 }
 
 //function for the heading of All events option
-
 void allEventsHeading()
 {
    cout << "    _    _ _                        _" << endl;
@@ -134,7 +133,6 @@ void allEventsHeading()
 }
 
 //function for the heading of Add an event option
-
 void addAnEventHeading()
 {
     
@@ -149,7 +147,6 @@ void addAnEventHeading()
 }
 
 //function for the heading of Delete an event option
-
 void deleteAnEventHeading()
 {
 
@@ -176,10 +173,7 @@ void quizHeading()
 
 }
 
-
 void printMenu(int option)
 {
-
     printMenuHeading(option);
-
 }
